@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CourseManagement.Application\CourseManagement.Application.csproj" />
+    <ProjectReference Include="..\CourseManagement.Infrastructure.EFCore\CourseManagement.Infrastructure.EFCore.csproj" />
+  </ItemGroup>
+
+</Project>
