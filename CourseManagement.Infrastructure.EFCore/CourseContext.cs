@@ -16,8 +16,10 @@ namespace CourseManagement.Infrastructure.EFCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var assembly = typeof(CourseCategoryMapping).Assembly;
+            var assembly = typeof(CourseMapping).Assembly;
             modelBuilder.ApplyConfigurationsFromAssembly(assembly);
+            modelBuilder.Entity<Course>().ToTable("Courses");
+            modelBuilder.Entity<CourseCategory>().ToTable("CourseCategories");
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -7,6 +7,8 @@ namespace CourseManagement.Application.Contracts.Course
     public class CreateCourse
     {
         public string Title { get; set; }
+        public string PageTitle { get; set; }
+        public long TeacherId { get; set; }
         public string ShortDescription { get; set; }
         public string Description { get; set; }
         public IFormFile Picture { get; set; }

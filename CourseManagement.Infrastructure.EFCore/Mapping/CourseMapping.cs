@@ -12,17 +12,28 @@ namespace CourseManagement.Infrastructure.EFCore.Mapping
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Title).IsRequired().HasMaxLength(120);
-            builder.Property(x => x.ShortDescription).HasMaxLength(500);
+            builder.Property(x => x.ShortDescription).HasMaxLength(150);
             builder.Property(x => x.Slug).IsRequired();
             builder.Property(x => x.Picture).IsRequired().HasMaxLength(1000);
             builder.Property(x => x.Keywords).IsRequired().HasMaxLength(120);
             builder.Property(x => x.Description).IsRequired().HasMaxLength(2000);
             builder.Property(x => x.Price).IsRequired();
+            builder.Property(x => x.PageTitle).IsRequired().HasMaxLength(60);
+            builder.Property(x => x.MetaDescription).IsRequired().HasMaxLength(150);
 
             builder
                 .HasOne(x => x.CourseCategory)
                 .WithMany(x => x.Courses)
                 .HasForeignKey(x => x.CategoryId);
+
+            builder
+                .HasOne(x => x.Teacher)
+                .WithMany(x => x.TeacherCourses)
+                .HasForeignKey(x => x.TeacherId);
+
+            builder
+                .HasMany(x => x.Students)
+                .WithMany(x => x.StudentCourses);
         }
     }
 }

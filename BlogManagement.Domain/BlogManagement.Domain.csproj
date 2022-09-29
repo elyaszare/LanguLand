@@ -6,7 +6,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\0_Framework\0_Framework.csproj" />
-    <ProjectReference Include="..\BlogManagement.Application.Contracts\BlogManagement.Application.Contracts.csproj" />
+	  <ProjectReference Include="..\BlogManagement.Application.Contracts\BlogManagement.Application.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AccountManagement.Domain">
+      <HintPath>..\AccountManagement.Domain\obj\Debug\net5.0\AccountManagement.Domain.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

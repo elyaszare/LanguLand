@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CourseCategoryManagement.Infrastructure.Configuration
 {
-    public class CourseCategoryManagementBootstrapper
+    public class CourseManagementBootstrapper
     {
         public static void Configure(IServiceCollection service, string connectionString)
         {

@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AccountManagement.Infrastructure.EFCore\AccountManagement.Infrastructure.EFCore.csproj" />
     <ProjectReference Include="..\CourseManagement.Domain\CourseManagement.Domain.csproj" />
   </ItemGroup>
 

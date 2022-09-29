@@ -1,6 +1,11 @@
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 using _0_Framework.Application;
+using _0_Framework.Application.Email;
+using AccountManagement.Infrastructure.Configuration;
 using BlogManagement.Infrastructure.Configuration;
 using CourseCategoryManagement.Infrastructure.Configuration;
+using DiscountManagement.Infrastructure.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,10 +26,18 @@ namespace ServiceHost
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
             var connectionString = Configuration.GetConnectionString("LanguLand_DB");
-            CourseCategoryManagementBootstrapper.Configure(services, connectionString);
-            ArticleCategoryManagementBootstrapper.Configure(services, connectionString);
+            CourseManagementBootstrapper.Configure(services, connectionString);
+            BlogManagementBootstrapper.Configure(services, connectionString);
+            DiscountManagementBootstrapper.Configure(services, connectionString);
+            AccountManagementBootstrapper.Configure(services, connectionString);
+
+            services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
+            services.AddSingleton<IPasswordHasher, PasswordHasher>();
             services.AddTransient<IFileUploader, FileUploader>();
+            services.AddTransient<IAuthHelper, AuthHelper>();
+            services.AddTransient<IEmailService, EmailService>();
             services.AddRazorPages();
         }
 

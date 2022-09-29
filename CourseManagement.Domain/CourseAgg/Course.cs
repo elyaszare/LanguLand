@@ -1,4 +1,6 @@
-﻿using _0_Framework;
+﻿using System.Collections.Generic;
+using _0_Framework;
+using AccountManagement.Domain.AccountAgg;
 using CourseManagement.Domain.CourseCategoryAgg;
 
 namespace CourseManagement.Domain.CourseAgg
@@ -6,6 +8,8 @@ namespace CourseManagement.Domain.CourseAgg
     public class Course:EntityBase
     {
         public string Title { get; set; }
+        public string PageTitle { get; set; }
+        public long TeacherId { get; set; }
         public string ShortDescription { get; set; }
         public string Description { get; set; }
         public string Picture { get; set; }
@@ -20,13 +24,19 @@ namespace CourseManagement.Domain.CourseAgg
         public string Keywords { get; set; }
         public string MetaDescription { get; set; }
         public string Slug { get; set; }
+        public Account Teacher { get; set; }
+        public List<Account> Students { get; set; }
         public CourseCategory CourseCategory { get; set; }
 
-        public Course(string title, string shortDescription, string description, string picture, string pictureAlt,
+        public Course(string title, string pageTitle, long teacherId, string shortDescription, string description,
+            string picture,
+            string pictureAlt,
             string pictureTitle, string level, string time, double price, long categoryId, string keywords,
             string metaDescription, string slug)
         {
             Title = title;
+            PageTitle = pageTitle;
+            TeacherId = teacherId;
             ShortDescription = shortDescription;
             Description = description;
             Picture = picture;
@@ -43,11 +53,15 @@ namespace CourseManagement.Domain.CourseAgg
             IsRemoved = false;
         }
 
-        public void Edit(string title, string shortDescription, string description, string picture, string pictureAlt,
+        public void Edit(string title, string pageTitle, long teacherId, string shortDescription, string description,
+            string picture,
+            string pictureAlt,
             string pictureTitle, string level, string time, double price, long categoryId, string keywords,
             string metaDescription, string slug)
         {
             Title = title;
+            PageTitle = pageTitle;
+            TeacherId = teacherId;
             ShortDescription = shortDescription;
             Description = description;
 

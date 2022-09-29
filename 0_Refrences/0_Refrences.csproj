@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>_0_Refrences</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlogManagement.Domain\BlogManagement.Domain.csproj" />
+    <ProjectReference Include="..\CourseManagement.Domain\CourseManagement.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

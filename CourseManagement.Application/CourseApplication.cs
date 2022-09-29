@@ -27,7 +27,8 @@ namespace CourseManagement.Application
             var filePath = $"Courses//{slug}";
             var fileName = _fileUploader.Upload(command.Picture, filePath);
 
-            var course = new Course(command.Title, command.ShortDescription, command.Description, fileName,
+            var course = new Course(command.Title, command.PageTitle, command.TeacherId, command.ShortDescription,
+                command.Description, fileName,
                 command.PictureAlt, command.PictureTitle, command.Level, command.Time, command.Price,
                 command.CategoryId, command.Keywords, command.MetaDescription, slug);
             _courseRepository.Create(course);
@@ -50,7 +51,8 @@ namespace CourseManagement.Application
             var filePath = $"Courses//{slug}";
             var fileName = _fileUploader.Upload(command.Picture, filePath);
 
-            courseCategory.Edit(command.Title, command.ShortDescription, command.Description, fileName,
+            courseCategory.Edit(command.Title, command.PageTitle, command.TeacherId, command.ShortDescription,
+                command.Description, fileName,
                 command.PictureAlt, command.PictureTitle, command.Level, command.Time, command.Price,
                 command.CategoryId, command.Keywords, command.MetaDescription, slug);
 
