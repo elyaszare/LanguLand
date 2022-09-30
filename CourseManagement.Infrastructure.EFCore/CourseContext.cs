@@ -18,8 +18,7 @@ namespace CourseManagement.Infrastructure.EFCore
         {
             var assembly = typeof(CourseMapping).Assembly;
             modelBuilder.ApplyConfigurationsFromAssembly(assembly);
-            modelBuilder.Entity<Course>().ToTable("Courses");
-            modelBuilder.Entity<CourseCategory>().ToTable("CourseCategories");
+            //modelBuilder.Entity<ArticleCategory>().ToTable("ArticleCategories");
             base.OnModelCreating(modelBuilder);
         }
     }

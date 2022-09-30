@@ -17,8 +17,6 @@ namespace BlogManagement.Infrastructure.EFCore
         {
             var assembly = typeof(ArticleMapping).Assembly;
             modelBuilder.ApplyConfigurationsFromAssembly(assembly);
-            modelBuilder.Entity<Article>().ToTable("Articles");
-            modelBuilder.Entity<ArticleCategory>().ToTable("ArticleCategories");
             base.OnModelCreating(modelBuilder);
         }
     }

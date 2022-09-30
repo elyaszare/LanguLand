@@ -16,7 +16,6 @@ namespace AccountManagement.Infrastructure.EFCore
         {
             var assembly = typeof(AccountMapping).Assembly;
             modelBuilder.ApplyConfigurationsFromAssembly(assembly);
-            modelBuilder.Entity<Account>().ToTable("Accounts");
             base.OnModelCreating(modelBuilder);
         }
     }
